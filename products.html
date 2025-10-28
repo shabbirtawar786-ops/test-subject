@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Exam Tracking - PSRComputers</title>
-  <link rel="stylesheet" href="product-style.css" />
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Products | PSR Software</title>
+  <link rel="stylesheet" href="products.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
- 
-<!-- Navigation Bar -->
+
+
+    <!-- Navigation Bar -->
 <header>
   <div class="nav-blur">
     <div class="container nav-flex">
@@ -18,8 +19,8 @@
         <img src="images/logo.png" alt="PSRComputers Logo" class="logo" />
         <span class="company-name">PSRComputers</span>
       </div>
- 
-    <nav>
+
+      <nav>
         <ul class="nav-links" id="navbar-links">
           <li><a href="index.html">Home</a></li>
 
@@ -65,46 +66,41 @@
 
 <!-- Overlay for dim background -->
 <div class="menu-overlay" id="menu-overlay"></div>
-  <main class="product-container">
-    <div class="product-flex">
-      <!-- Main Content -->
-      <section class="product-content">
-        <h1>Contax Software</h1>
-        <div class="tagline">
-          Revolutionize your institution's examination process with real-time analytics, organized scheduling, and actionable insights.
-        </div>
-        <p>
-          <strong>PSRComputers Exam Tracking</strong> empowers educators and administrators to plan, execute, and monitor exams seamlessly, ensuring transparency and efficient result management.
-        </p>
-        <ul class="features-list">
-          <li>Automated exam scheduling and conflict detection</li>
-          <li>Customizable grading rubrics and results publication</li>
-          <li>Detailed performance dashboards</li>
-          <li>Instant notification for students and staff</li>
-          <li>Comprehensive, exportable reports</li>
-          <li>Secure, role-based access</li>
-        </ul>
-        <a href="contact.html" class="btn-back">Request Demo</a>
-        <a href="index.html" class="btn-back-secondary">← Home</a>
-      </section>
 
-      <!-- Image Slider -->
-      <aside class="product-slider">
-        <div class="slider-container" id="examSlider">
-          <img src="software-asset-management-tracking-best-practices_03.jpg" alt="Exam Tracking UI" style="opacity:1"  >
-          <img src="7338965794235855software.jpg" alt="Software Screenshot" style="opacity:0;">
-          <img src="images.jpg" alt="Dashboard Diagram" style="opacity:0;">
-          <div class="slider-controls" id="sliderDots">
-            <div class="slider-btn active" data-index="0"></div>
-            <div class="slider-btn" data-index="1"></div>
-            <div class="slider-btn" data-index="2"></div>
-          </div>
-        </div>
-      </aside>
+  <!-- Our Products Section -->
+  <section class="products-section">
+    <h1>Our Products</h1>
+
+    <!-- Dropdown -->
+    <div class="dropdown">
+      <button class="dropbtn" id="dropdownButton">Select Product <span>▼</span></button>
+      <div class="dropdown-content" id="dropdownContent">
+        <a href="#" data-product="paysoft">PaySoft — Payroll Management</a>
+        <a href="#" data-product="feesoft">FeeSoft — Fee & Record Management</a>
+        <a href="#" data-product="examsoft">ExamSoft — Exam & Result Tracking</a>
+        <a href="#" data-product="libsoft">LibSoft — Library Management</a>
+        <a href="#" data-product="levsoft">LevSoft — Leave Management</a>
+        <a href="#" data-product="stusoft">StuSoft — Student Administration</a>
+        <a href="#" data-product="contax">Contax — TDS Management</a>
+      </div>
     </div>
-  </main>
 
-  <!-- footer -->
+    <!-- Product Details -->
+    <div class="product-details" id="productDetails">
+      <p>Select a product from the dropdown to view details.</p>
+    </div>
+  </section>
+  
+
+
+ <!-- WhatsApp Floating Button -->
+<div class="whatsapp-float-btn">
+  <a href="https://wa.me/918448663060" target="_blank" aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" />
+  </a>
+</div>
+
+<!-- footer -->
   <footer class="main-footer">
     <div class="footer-content">
       <div class="footer-col logo-address">
@@ -162,6 +158,11 @@
     </div>
   </footer>
 
-  <script src="product.js"></script>
+  <script src="script.js"></script>
+
+
+</body>
+</html>
+  <script src="products.js"></script>
 </body>
 </html>

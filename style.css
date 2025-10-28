@@ -624,9 +624,9 @@ body.no-scroll {
   max-width: 340px;
   width: 90%;
   border-radius: 22px;
-  box-shadow: 0 6px 26px #21aac520;
+  /* box-shadow: 0 6px 26px #21aac520; */
   object-fit: cover;
-  background: #fff;
+  /* background: #fff; */
 }
 @media (max-width: 900px) {
   .about-flex {

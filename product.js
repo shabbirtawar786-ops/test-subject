@@ -82,3 +82,64 @@ document.querySelectorAll('.dropdown-menu a').forEach(link => {
     hamburger.innerHTML = '<i class="fas fa-bars"></i>';
   });
 });
+
+
+/* ==========================================
+   IMAGE ZOOM + GALLERY NAVIGATION
+   ========================================== */
+document.addEventListener("DOMContentLoaded", function() {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const zoomableImgs = document.querySelectorAll(".zoomable-img");
+  const closeBtn = document.querySelector(".close-modal");
+  const prevArrow = document.querySelector(".nav-arrow.prev");
+  const nextArrow = document.querySelector(".nav-arrow.next");
+  
+  let currentIndex = 0;
+
+  function showImage(index) {
+    if (index < 0) index = zoomableImgs.length - 1;
+    if (index >= zoomableImgs.length) index = 0;
+    currentIndex = index;
+    modalImg.src = zoomableImgs[index].src;
+  }
+
+  zoomableImgs.forEach((img, i) => {
+    img.addEventListener("click", () => {
+      modal.style.display = "block";
+      showImage(i);
+      document.body.classList.add("no-scroll");
+    });
+  });
+
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+    document.body.classList.remove("no-scroll");
+  };
+
+  prevArrow.onclick = () => {
+    showImage(currentIndex - 1);
+  };
+
+  nextArrow.onclick = () => {
+    showImage(currentIndex + 1);
+  };
+
+  modal.onclick = (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      document.body.classList.remove("no-scroll");
+    }
+  };
+
+  document.addEventListener("keydown", (e) => {
+    if (modal.style.display === "block") {
+      if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+      if (e.key === "ArrowRight") showImage(currentIndex + 1);
+      if (e.key === "Escape") {
+        modal.style.display = "none";
+        document.body.classList.remove("no-scroll");
+      }
+    }
+  });
+});
