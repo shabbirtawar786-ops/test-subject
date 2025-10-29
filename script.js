@@ -52,6 +52,18 @@ document.querySelectorAll('.dropdown-menu a').forEach(link => {
   });
 });
 
+// ================================
+// NESTED DROPDOWN (Development)
+// ================================
+document.querySelectorAll('.dropdown-sub-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    if (window.innerWidth <= 700) {
+      e.preventDefault();
+      const parent = toggle.parentElement;
+      parent.classList.toggle('open');
+    }
+  });
+});
 
 /* ==========================
    HERO SLIDER
@@ -176,11 +188,6 @@ window.onload = function () {
 };
 
 
-/* ==========================
-   FOOTER COPYRIGHT YEAR
-   ========================== */
-document.getElementById('year').textContent = new Date().getFullYear();
-
 
 /* ==========================
    BRAND SLIDER HOVER EFFECT
@@ -194,3 +201,12 @@ if (brandSlider) {
     brandSlider.style.animationPlayState = 'running';
   });
 }
+
+
+// AUTO YEAR UPDATE
+document.addEventListener("DOMContentLoaded", () => {
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+});

@@ -1,145 +1,137 @@
-// Simple image slider
-document.addEventListener("DOMContentLoaded", function() {
-  const slider = document.getElementById('examSlider');
-  if (!slider) return;
-  const slides = slider.querySelectorAll('img');
-  const dots = document.getElementById('sliderDots').querySelectorAll('.slider-btn');
-  let current = 0;
-  let timer;
-  function showSlide(idx) {
-    slides.forEach((img, i) => { img.style.opacity = (i === idx) ? '1' : '0'; });
-    dots.forEach((dot, i) => { dot.classList.toggle('active', i === idx) });
-    current = idx;
-  }
-  function nextSlide() {
-    showSlide((current + 1) % slides.length);
-  }
-  dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); resetTimer(); }));
-  function resetTimer() {
-    clearInterval(timer);
-    timer = setInterval(nextSlide, 3400);
-  }
-  timer = setInterval(nextSlide, 3400);
-});
-
-// Footer year update (works for all products)
-document.addEventListener("DOMContentLoaded",function(){
-  var y=document.getElementById('year');
-  if(y)y.textContent=new Date().getFullYear();
-});
-
-
-/* ==========================
-   NAVBAR FUNCTIONALITY
-   ========================== */
-
-// Elements
+// ===============================
+//  NAVIGATION & HAMBURGER MENU
+// ===============================
 const hamburger = document.getElementById("navbar-hamburger");
 const navLinks = document.getElementById("navbar-links");
 const overlay = document.getElementById("menu-overlay");
-const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
-const body = document.body;
 
-// Toggle mobile menu open/close
 hamburger.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("open");
+  navLinks.classList.toggle("open");
   overlay.classList.toggle("show");
-  body.classList.toggle("no-scroll");
-
-  // Switch icon between bars and close
-  hamburger.innerHTML = isOpen
-    ? '<i class="fas fa-times"></i>'
-    : '<i class="fas fa-bars"></i>';
+  document.body.classList.toggle("no-scroll");
 });
 
-// Close menu when overlay is clicked
 overlay.addEventListener("click", () => {
   navLinks.classList.remove("open");
   overlay.classList.remove("show");
-  body.classList.remove("no-scroll");
-  hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+  document.body.classList.remove("no-scroll");
 });
 
-// Dropdown expand/collapse on mobile
-dropdownToggles.forEach(toggle => {
-  toggle.addEventListener("click", (e) => {
-    e.preventDefault();
-    const parent = toggle.parentElement;
-    parent.classList.toggle("open");
-
-    // Rotate dropdown icon
-    const icon = toggle.querySelector(".dropdown-icon");
-    if (icon) icon.classList.toggle("rotate");
+// Mobile dropdown open/close
+document.querySelectorAll(".dropdown > a").forEach(link => {
+  link.addEventListener("click", e => {
+    if (window.innerWidth <= 700) {
+      e.preventDefault();
+      const parent = link.parentElement;
+      parent.classList.toggle("open");
+    }
   });
 });
 
-// Close nav when product dropdown links clicked (mobile UX improvement)
-document.querySelectorAll('.dropdown-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    overlay.classList.remove('show');
-    body.classList.remove('no-scroll');
-    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-  });
+// ===============================
+//  IMAGE SLIDER / CAROUSEL
+// ===============================
+const track = document.getElementById("sliderTrack");
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+let index = 0;
+const totalSlides = slides.length;
+
+function updateSlider(newIndex) {
+  index = (newIndex + totalSlides) % totalSlides;
+  track.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[index].classList.add("active");
+}
+
+dots.forEach(dot => {
+  dot.addEventListener("click", () => updateSlider(parseInt(dot.dataset.index)));
 });
 
+// Auto-slide
+setInterval(() => updateSlider(index + 1), 5000);
 
-/* ==========================================
-   IMAGE ZOOM + GALLERY NAVIGATION
-   ========================================== */
-document.addEventListener("DOMContentLoaded", function() {
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImage");
-  const zoomableImgs = document.querySelectorAll(".zoomable-img");
-  const closeBtn = document.querySelector(".close-modal");
-  const prevArrow = document.querySelector(".nav-arrow.prev");
-  const nextArrow = document.querySelector(".nav-arrow.next");
-  
-  let currentIndex = 0;
+// ===============================
+//  LIGHTBOX (fullscreen view)
+// ===============================
+const lightbox = document.getElementById("lightbox");
+const lbImage = document.getElementById("lbImage");
+const lbPrev = document.getElementById("lbPrev");
+const lbNext = document.getElementById("lbNext");
+const lbClose = document.getElementById("lbClose");
+const lbOverlay = document.getElementById("lbOverlay");
 
-  function showImage(index) {
-    if (index < 0) index = zoomableImgs.length - 1;
-    if (index >= zoomableImgs.length) index = 0;
-    currentIndex = index;
-    modalImg.src = zoomableImgs[index].src;
-  }
+slides.forEach((slide, i) => {
+  slide.addEventListener("click", () => openLightbox(i));
+});
 
-  zoomableImgs.forEach((img, i) => {
-    img.addEventListener("click", () => {
-      modal.style.display = "block";
-      showImage(i);
+function openLightbox(i) {
+  lightbox.classList.add("open");
+  lbImage.src = slides[i].querySelector("img").src;
+  lbImage.dataset.index = i;
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+}
+
+lbClose.addEventListener("click", closeLightbox);
+lbOverlay.addEventListener("click", closeLightbox);
+
+lbPrev.addEventListener("click", () => {
+  let i = parseInt(lbImage.dataset.index);
+  i = (i - 1 + totalSlides) % totalSlides;
+  openLightbox(i);
+});
+
+lbNext.addEventListener("click", () => {
+  let i = parseInt(lbImage.dataset.index);
+  i = (i + 1) % totalSlides;
+  openLightbox(i);
+});
+
+// ===============================
+// === DEMO REQUEST MODAL ===
+const modal = document.getElementById("demoModal");
+const modalClose = document.getElementById("modalClose");
+const modalBackdrop = document.getElementById("modalBackdrop");
+const modalCancel = document.getElementById("modalCancel");
+const modalSend = document.getElementById("modalSend");
+
+const demoButtons = document.querySelectorAll("#requestDemoBtn, #requestDemoBtnBottom");
+
+demoButtons.forEach(btn => {
+  if (btn) {
+    btn.addEventListener("click", () => {
+      modal.classList.add("open");
       document.body.classList.add("no-scroll");
     });
-  });
-
-  closeBtn.onclick = () => {
-    modal.style.display = "none";
-    document.body.classList.remove("no-scroll");
-  };
-
-  prevArrow.onclick = () => {
-    showImage(currentIndex - 1);
-  };
-
-  nextArrow.onclick = () => {
-    showImage(currentIndex + 1);
-  };
-
-  modal.onclick = (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
-      document.body.classList.remove("no-scroll");
-    }
-  };
-
-  document.addEventListener("keydown", (e) => {
-    if (modal.style.display === "block") {
-      if (e.key === "ArrowLeft") showImage(currentIndex - 1);
-      if (e.key === "ArrowRight") showImage(currentIndex + 1);
-      if (e.key === "Escape") {
-        modal.style.display = "none";
-        document.body.classList.remove("no-scroll");
-      }
-    }
-  });
+  }
 });
+
+function closeModal() {
+  modal.classList.remove("open");
+  document.body.classList.remove("no-scroll");
+}
+
+[modalClose, modalBackdrop, modalCancel].forEach(el => {
+  el.addEventListener("click", closeModal);
+});
+
+modalSend.addEventListener("click", () => {
+  const email = document.getElementById("demoEmail").value.trim();
+  if (!email) {
+    alert("Please enter your email before sending!");
+    return;
+  }
+  alert("✅ Thank you! Your demo request has been submitted.");
+  closeModal();
+});
+
+
+// ===============================
+//  FOOTER YEAR AUTO UPDATE
+// ===============================
+document.getElementById("year").textContent = new Date().getFullYear();
+

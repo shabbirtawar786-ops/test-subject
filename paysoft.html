@@ -1,16 +1,15 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Exam Tracking - PSRComputers</title>
   <link rel="stylesheet" href="product-style.css" />
-    <!-- <link rel="stylesheet" href="style.css" /> -->
 </head>
 <body>
 
- 
-<!-- Navigation Bar -->
+
+  <!-- Navigation Bar -->
 <header>
   <div class="nav-blur">
     <div class="container nav-flex">
@@ -18,8 +17,8 @@
         <img src="images/logo.png" alt="PSRComputers Logo" class="logo" />
         <span class="company-name">PSRComputers</span>
       </div>
- 
-    <nav>
+
+      <nav>
         <ul class="nav-links" id="navbar-links">
           <li><a href="index.html">Home</a></li>
 
@@ -65,46 +64,155 @@
 
 <!-- Overlay for dim background -->
 <div class="menu-overlay" id="menu-overlay"></div>
-  <main class="product-container">
-    <div class="product-flex">
-      <!-- Main Content -->
-      <section class="product-content">
-        <h1>PaySoft Software</h1>
-        <div class="tagline">
-          Revolutionize your institution's examination process with real-time analytics, organized scheduling, and actionable insights.
-        </div>
-        <p>
-          <strong>PSRComputers Exam Tracking</strong> empowers educators and administrators to plan, execute, and monitor exams seamlessly, ensuring transparency and efficient result management.
-        </p>
-        <ul class="features-list">
-          <li>Automated exam scheduling and conflict detection</li>
-          <li>Customizable grading rubrics and results publication</li>
-          <li>Detailed performance dashboards</li>
-          <li>Instant notification for students and staff</li>
-          <li>Comprehensive, exportable reports</li>
-          <li>Secure, role-based access</li>
-        </ul>
-        <a href="contact.html" class="btn-back">Request Demo</a>
-        <a href="index.html" class="btn-back-secondary">← Home</a>
-      </section>
 
-      <!-- Image Slider -->
-      <aside class="product-slider">
-        <div class="slider-container" id="examSlider">
-          <img src="software-asset-management-tracking-best-practices_03.jpg" alt="Exam Tracking UI" style="opacity:1;">
-          <img src="7338965794235855software.jpg" alt="Software Screenshot" style="opacity:0;">
-          <img src="images.jpg" alt="Dashboard Diagram" style="opacity:0;">
-          <div class="slider-controls" id="sliderDots">
-            <div class="slider-btn active" data-index="0"></div>
-            <div class="slider-btn" data-index="1"></div>
-            <div class="slider-btn" data-index="2"></div>
+
+  <div id="paysoftPageContent">
+  <section class="paysoft-hero" id="paysoft">
+    <div class="left">
+      <h1>PaySoft</h1>
+      <div class="tagline">Simplify Payroll. Seamless Management.</div>
+      <p class="lead">
+        Staff Payroll Maintenance, better known as <strong>PaySoft</strong>, is a complete payroll and accounting
+        solution designed to simplify staff salary management for organizations of all sizes. Accurate salary computation,
+        effortless statutory compliance, and complete data security — all from one user-friendly platform.
+      </p>
+      <div class="actions">
+        <button class="btn btn-primary" id="requestDemoBtn">Get a Demo</button>
+        <a class="btn btn-ghost" href="#features">See Features</a>
+      </div>
+    </div>
+
+    <!-- carousel -->
+    <div class="carousel-wrap" aria-label="PaySoft image carousel">
+      <div class="slider" id="carousel">
+        <div class="slider-track" id="sliderTrack">
+          <!-- Slide 1 -->
+          <div class="slide" data-tooltip="Dashboard Overview" data-index="0">
+            <img src="images/paysoft.png" alt="PaySoft Dashboard Overview" draggable="false">
+          </div>
+          <!-- Slide 2 -->
+          <div class="slide" data-tooltip="Salary Setup Page" data-index="1">
+            <img src="images/paysofta.png" alt="Salary Setup Page" draggable="false">
+          </div>
+          <!-- Slide 3 -->
+          <div class="slide" data-tooltip="Employee Management" data-index="2">
+            <img src="images/paysoftb.png" alt="Employee Management" draggable="false">
+          </div>
+          <!-- Slide 4 -->
+          <div class="slide" data-tooltip="Reports & Analytics" data-index="3">
+            <img src="images/paysofta.png" alt="Reports and Analytics" draggable="false">
           </div>
         </div>
-      </aside>
-    </div>
-  </main>
+      </div>
 
-  <!-- footer -->
+      <!-- dots -->
+      <div class="dots" id="dots" aria-hidden="false">
+        <div class="dot" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+        <div class="dot" data-index="2"></div>
+        <div class="dot" data-index="3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Definition + features -->
+  <section class="features" id="features">
+    <h2>Core Features</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Automated Salary & Arrears</h3>
+        <p>Forget manual calculations—PaySoft automates staff salaries, arrears, bonuses, and increments with precision.</p>
+      </div>
+      <div class="feature">
+        <h3>Configurable Deductions & Allowances</h3>
+        <p>One-time setup handles all deductions and allowances and can be updated easily as rules evolve.</p>
+      </div>
+      <div class="feature">
+        <h3>Effortless Reports On-Demand</h3>
+        <p>Generate salary slips, bank statements, compliance forms, PF summaries, or custom analytics in one click.</p>
+      </div>
+      <div class="feature">
+        <h3>Smart Controls & Error Prevention</h3>
+        <p>Built-in error detection and instant employee history access reduce mistakes and speed up auditing.</p>
+      </div>
+      <div class="feature">
+        <h3>Total Data Security</h3>
+        <p>Data remains private and accessible only to authorized personnel with modern encryption best practices.</p>
+      </div>
+      <div class="feature">
+        <h3>Built For Growth</h3>
+        <p>Flexible to handle high staff volumes, changing pay structures, and organization-specific payroll policies.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Action CTA -->
+<section class="cta" id="contact">
+  <div class="cta-box">
+    <h2>Power Up Your Payroll with PaySoft</h2>
+    <p>Manage salaries, compliance, and staff data with precision, speed, and total control. 
+       Experience the future of payroll management built for modern organizations.</p>
+    <div class="cta-buttons">
+      <button class="cta-btn primary" id="requestDemoBtnBottom">Request Demo</button>
+      <a href="#features" class="cta-btn secondary">See Features</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Lightbox (fullscreen) -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Image viewer">
+  <div class="overlay" id="lbOverlay"></div>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image" title="Previous">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="panel" id="lbPanel">
+    <img src="" alt="Fullscreen image" id="lbImage">
+  </div>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next image" title="Next">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="lb-close" id="lbClose" aria-label="Close viewer" title="Close">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</div>
+
+<!-- Demo Modal (contact form) -->
+<div class="modal" id="demoModal" role="dialog" aria-hidden="true" aria-labelledby="demoTitle">
+  <div class="backdrop" id="modalBackdrop"></div>
+  <div class="modal-box" role="document" aria-modal="true">
+    <div class="close-x" id="modalClose" title="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <h3 id="demoTitle">Request a Demo</h3>
+    <p>Enter your email and a brief message — our team will contact you shortly to schedule your personalized demo.</p>
+
+    <label for="demoEmail">Email</label>
+    <input type="email" id="demoEmail" placeholder="you@company.com" required />
+
+    <label for="demoMessage">Message</label>
+    <textarea id="demoMessage" placeholder="Tell us about your requirements..."></textarea>
+
+    <div class="modal-actions">
+      <button class="btn cancel" id="modalCancel">Cancel</button>
+      <button class="btn send" id="modalSend">Send Request</button>
+    </div>
+  </div>
+</div>
+
+
+   <!-- WhatsApp Floating Button -->
+<div class="whatsapp-float-btn">
+  <a href="https://wa.me/918448663060" target="_blank" aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" />
+  </a>
+</div>
+
+<!-- footer -->
   <footer class="main-footer">
     <div class="footer-content">
       <div class="footer-col logo-address">
@@ -161,7 +269,6 @@
       © <span id="year"></span> PSR Computers. All Rights Reserved.
     </div>
   </footer>
-
   <script src="product.js"></script>
 </body>
 </html>
