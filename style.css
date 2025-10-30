@@ -9,7 +9,7 @@
 
 /* Base */
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
   padding-top: 72px;
   background: #fff;
@@ -21,7 +21,7 @@ body.no-scroll {
   overflow: hidden;
 }
 
-/* Navbar */
+/* Navbar Blur Container */
 .nav-blur {
   position: fixed;
   top: 0;
@@ -48,6 +48,7 @@ body.no-scroll {
   height: 72px;
 }
 
+/* Brand */
 .brand {
   display: flex;
   align-items: center;
@@ -65,7 +66,7 @@ body.no-scroll {
   color: var(--brand-name);
 }
 
-/* Links */
+/* Navigation Links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -91,68 +92,145 @@ body.no-scroll {
   color: var(--nav-link-hover);
 }
 
-/* Dropdowns */
+/* ==========================
+   Smooth Dropdown Styling
+   ========================== */
 .dropdown {
-   display: flex;
+  position: relative;
+}
+
+.dropdown > a {
+  display: flex;
   align-items: center;
-  justify-content: center;}
+  gap: 4px;
+  cursor: pointer;
+}
 
 .dropdown-icon {
-  transition: transform 0.35s ease;
-  margin-left: 6px;
-
+  transition: transform 0.3s ease;
 }
 
 .dropdown-icon.rotate {
   transform: rotate(180deg);
 }
 
+/* Dropdown Menu */
 .dropdown-menu {
   position: absolute;
   top: 110%;
   left: 0;
-  min-width: 190px;
-  background: rgba(255, 255, 255, 0.9);
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 12px;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
-  z-index: 999;
+  transform: translateY(12px);
+  transition: all 0.28s ease;
+  z-index: 1000;
   pointer-events: none;
 }
 
-.dropdown-menu li a {
-  display: block;
-  color: #000;
-  font-size: 15px;
-  border-radius: 8px;
-  padding: 8px 16px;
-  transition: background 0.25s ease, color 0.25s ease;
+/* Hover (Desktop) */
+.dropdown:hover > .dropdown-menu,
+.dropdown:focus-within > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0.1s;
 }
 
-.dropdown-menu li a:hover {
-  background: rgba(33, 170, 197, 0.12);
-  color: #21aac5;
-}
-.dropdown > a {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-/* Show dropdown on hover (desktop) */
-.dropdown:hover > .dropdown-menu {
+/* Prevent flicker */
+.dropdown-menu:hover {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-/* Hamburger */
+/* Dropdown Links */
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 16px;
+  color: #000;
+  border-radius: 8px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(33, 170, 197, 0.1);
+  color: #21aac5;
+}
+
+/* ==========================
+   Nested Dropdown (Development)
+   ========================== */
+.dropdown-sub {
+  position: relative;
+}
+
+.dropdown-sub-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: background 0.25s ease;
+}
+
+.dropdown-sub-toggle:hover {
+  background: rgba(33, 170, 197, 0.12);
+  color: #21aac5;
+}
+
+.sub-icon {
+  margin-left: 6px;
+  font-size: 0.85em;
+  transition: transform 0.3s ease;
+}
+
+/* Submenu */
+.dropdown-submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(12px);
+  transition: all 0.28s ease;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Show Nested Dropdown */
+.dropdown-sub:hover > .dropdown-submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Prevent flicker */
+.dropdown-submenu:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* ==========================
+   Hamburger & Overlay
+   ========================== */
 .hamburger {
   display: none;
   background: none;
@@ -163,7 +241,6 @@ body.no-scroll {
   transition: transform 0.3s ease;
 }
 
-/* Overlay */
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -180,7 +257,9 @@ body.no-scroll {
   visibility: visible;
 }
 
-/* Mobile */
+/* ==========================
+   Mobile Responsive
+   ========================== */
 @media (max-width: 700px) {
   .nav-links {
     position: absolute;
@@ -188,14 +267,15 @@ body.no-scroll {
     right: 16px;
     flex-direction: column;
     align-items: flex-start;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(16px);
     padding: 20px 30px;
     border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
     display: none;
     gap: 12px;
     width: 230px;
+    animation: none;
   }
 
   .nav-links.open {
@@ -214,8 +294,9 @@ body.no-scroll {
     }
   }
 
-  /* Mobile dropdown expand */
-  .dropdown-menu {
+  /* Dropdown in Mobile */
+  .dropdown-menu,
+  .dropdown-submenu {
     position: static;
     opacity: 0;
     visibility: hidden;
@@ -223,10 +304,11 @@ body.no-scroll {
     overflow: hidden;
     background: transparent;
     box-shadow: none;
-    transition: all 0.35s ease;
+    transition: all 0.3s ease;
   }
 
-  .dropdown.open .dropdown-menu {
+  .dropdown.open .dropdown-menu,
+  .dropdown-sub.open .dropdown-submenu {
     opacity: 1;
     visibility: visible;
     max-height: 400px;
@@ -236,129 +318,25 @@ body.no-scroll {
     display: block;
   }
 }
-/* Theme Toggle Button */
+
+/* ==========================
+   Theme Toggle (optional)
+   ========================== */
 .theme-toggle {
- background: none;
- border: none;
- cursor: pointer;
- font-size: 1.7em;
- margin-left: 6px;
- padding: 0 6px;
- outline: none;
- transition: color 0.2s;
-}
-.theme-toggle:hover #themeIcon {
- color: var(--nav-link-hover);
-}
-
-/* Smooth dropdown open/close delay for desktop */
-@media (min-width: 701px) {
-  .dropdown {
-    position: relative;
-  }
-
-  .dropdown-menu {
-    pointer-events: none;
-  }
-
-  .dropdown:hover > .dropdown-menu,
-  .dropdown:focus-within > .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
-    transition-delay: 80ms; /* small delay for hover-in */
-  }
-
-  /* Delay hiding to prevent flicker */
-  .dropdown:not(:hover) > .dropdown-menu {
-    transition-delay: 120ms; /* small delay for hover-out */
-  }
-}
-/* --- Nested Dropdown (Development) --- */
-.dropdown-sub {
-  position: relative;
-}
-
-.dropdown-sub-toggle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #000;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  transition: background 0.25s ease;
-}
-
-.dropdown-sub-toggle:hover {
-  background: rgba(33, 170, 197, 0.12);
-  color: #21aac5;
-}
-
-.sub-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.7em;
   margin-left: 6px;
-  font-size: 0.85em;
-  transition: transform 0.3s ease;
+  padding: 0 6px;
+  outline: none;
+  transition: color 0.2s;
 }
 
-/* submenu */
-.dropdown-submenu {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-  min-width: 180px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(10px);
-  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
-  pointer-events: none;
-  z-index: 9999;
+.theme-toggle:hover #themeIcon {
+  color: var(--nav-link-hover);
 }
 
-/* show on hover */
-.dropdown-sub:hover > .dropdown-submenu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
-  pointer-events: auto;
-}
-
-/* mobile behavior */
-@media (max-width: 700px) {
-  .dropdown-submenu {
-    position: static;
-    opacity: 0;
-    visibility: hidden;
-    max-height: 0;
-    overflow: hidden;
-    transform: none;
-    box-shadow: none;
-    background: transparent;
-  }
-
-  .dropdown-sub.open .dropdown-submenu {
-    opacity: 1;
-    visibility: visible;
-    max-height: 300px;
-  }
-
-  .dropdown-sub-toggle {
-    width: 100%;
-  }
-
-  .sub-icon {
-    transform: rotate(90deg);
-  }
-
-  .dropdown-sub.open .sub-icon {
-    transform: rotate(270deg);
-  }
-}
 
 
 /* ===== HERO SLIDER CONTAINER ===== */
@@ -1002,6 +980,7 @@ body.dark-mode .about-image img {
   align-items: center;
   gap: 12px;
   margin-bottom: 14px;
+  flex-wrap: wrap;
 }
 .footer-logo {
   width: 56px;
@@ -1012,6 +991,7 @@ body.dark-mode .about-image img {
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 0.5px;
+  align-self: flex-end; /* Aligns the brand name under the logo */
 }
 
 /* Address & Map */
@@ -1036,7 +1016,6 @@ body.dark-mode .about-image img {
 /* Services */
 .footer-services ul {
   list-style: none;
-  
   padding: 0;
   margin: 0;
 }
@@ -1127,7 +1106,6 @@ body.dark-mode .about-image img {
   .footer-col { margin-bottom: 20px; }
   .footer-company-name { font-size: 1.5rem; }
 }
-
 
 
 

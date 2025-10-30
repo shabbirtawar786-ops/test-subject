@@ -1,148 +1,404 @@
-
-
-
-/* Global layout */
-html, body {
-
-  height: 100%;
-  margin: 0;
-
+:root {
+  --nav-bg: rgba(255, 255, 255, 0.7);
+  --nav-border: rgba(200, 200, 200, 0.45);
+  --nav-blur: blur(14px);
+  --nav-link: #000;
+  --nav-link-hover: #21aac5;
+  --brand-name: #21aac5;
+  --table-border: #e0e6ef;
 }
 
+/* ==========================
+   BASE STYLES
+========================== */
 body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding-top: 72px;
+  background: #ffffff;
+  color: #334155;
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+.nav-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--nav-bg);
+  border-bottom: 1.5px solid var(--nav-border);
+  backdrop-filter: var(--nav-blur);
+  -webkit-backdrop-filter: var(--nav-blur);
+  box-shadow: 0 2.5px 32px #dbe0ed90;
+  z-index: 1111;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.nav-flex {
   display: flex;
-  flex-direction: column;
-  font-family: "Poppins", sans-serif;
-  background: #f8fafc;
-  color: #1e293b;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
 }
 
-/* Pricing section takes all remaining space above footer */
-.pricing-section {
-  flex: 1;
-
-  text-align: center;
-  width: 90%;
-  max-width: 1100px;
-  margin: 150px auto 40px auto;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Headings */
-.pricing-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #334155;
+.logo {
+  width: 45px;
+  height: auto;
 }
 
-/* Dropdown styling */
-.dropdown {
+.company-name {
+  font-size: 1.7em;
+  font-weight: 700;
+  color: var(--brand-name);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 0;
+}
+
+.nav-links li {
   position: relative;
-  display: inline-block;
-  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
 }
 
-.dropbtn {
-  background: #fff;
-  color: #334155;
-  padding: 12px 24px;
+.nav-links li a {
+  text-decoration: none;
+  color: var(--nav-link);
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-links li a:hover {
+  background: rgba(33, 170, 197, 0.08);
+  color: var(--nav-link-hover);
+}
+
+/* Dropdown alignment fix */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  z-index: 999;
+  min-width: 200px;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li a {
+  display: block;
+  color: #000;
+  padding: 10px 16px;
+  transition: background 0.3s;
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(33, 170, 197, 0.12);
+  color: #21aac5;
+}
+
+/* ==========================
+   HERO / PAGE HEADER
+========================== */
+.pricing-section {
+  text-align: center;
+  max-width: 1100px;
+  margin: 130px auto 60px auto;
+  padding: 0 20px;
+}
+
+.pricing-section h1 {
+  font-size: 2.7rem;
+  color: #1e293b;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.pricing-section .dropbtn {
+  background: linear-gradient(90deg, #21aac5, #00b4ff);
+  color: white;
+  padding: 14px 26px;
   font-size: 1rem;
-  border-radius: 10px;
-  border: 1.5px solid transparent;
+  border-radius: 12px;
+  border: none;
   cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  background-image: linear-gradient(#fff, #fff),
-                    linear-gradient(90deg, #6a5af9, #00b2ff);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
+  box-shadow: 0 4px 10px rgba(33, 170, 197, 0.3);
+  transition: all 0.3s ease;
 }
 
-.dropbtn:hover {
-  background: #f1f5f9;
+.pricing-section .dropbtn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #009cc9, #0095ff);
 }
 
 /* Dropdown menu */
+/* === Our Products Dropdown === */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: linear-gradient(90deg, #21aac5, #00b4ff);
+  color: white;
+  padding: 14px 26px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(33, 170, 197, 0.3);
+  transition: all 0.3s ease;
+}
+
+.dropbtn:hover {
+  background: linear-gradient(90deg, #009cc9, #0095ff);
+  transform: translateY(-2px);
+}
+
+/* ✅ Correct dropdown positioning */
 .dropdown-content {
   display: none;
   position: absolute;
-  background: #ffffff;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  background-color: #ffffff;
   min-width: 220px;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  z-index: 5;
+  z-index: 9999;
 }
 
-.dropdown-content a {
-  display: block;
-  color: #334155;
-  padding: 12px 16px;
-  text-decoration: none;
-  transition: 0.2s;
-  font-weight: 500;
-}
-
-.dropdown-content a:hover {
-  background: #f1f5f9;
-}
-
+/* Show dropdown when hovered */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Table styling */
+/* Dropdown links styling */
+.dropdown-content a {
+  display: block;
+  padding: 12px 16px;
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background: #f1f5f9;
+  color: #21aac5;
+}
+
+/* ==========================
+   TABLE SECTION
+========================== */
 .table-wrapper {
-  margin-top: 40px;
+  margin: 50px auto 100px auto;
+  width: 90%;
+  max-width: 1100px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   overflow-x: auto;
-  animation: fadeIn 0.4s ease;
+  padding: 40px 30px;
 }
 
 .table-wrapper h2 {
-  color: #334155;
-  margin-bottom: 15px;
+  color: #1e293b;
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background: #fff;
-  border-radius: 10px;
+  border: 1.5px solid var(--table-border);
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
 }
 
-th, td {
-  padding: 14px;
+th,
+td {
+  padding: 16px;
   text-align: center;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--table-border);
+  border-right: 1px solid var(--table-border);
+}
+
+th:last-child,
+td:last-child {
+  border-right: none;
+}
+
+tr:last-child td {
+  border-bottom: none;
 }
 
 th {
-  background: #f1f5f9;
-  color: #475569;
+  background: #f8fafc;
+  color: #1e293b;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  font-size: 0.95rem;
+}
+
+td {
+  color: #475569;
+  font-size: 0.95rem;
 }
 
 tr:hover {
-  background: #f9fafb;
+  background: #f1f5f9;
+  transition: background 0.3s ease;
 }
 
+/* Add subtle row hover lift */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Footer always sticks to bottom */
+.table-wrapper {
+  animation: fadeIn 0.6s ease;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 16px;
+  }
+
+  .pricing-section h1 {
+    font-size: 2rem;
+  }
+
+  .table-wrapper {
+    padding: 20px;
+  }
+
+  table th,
+  table td {
+    padding: 10px;
+  }
+}
+
+
+
+/* Social Bar Styling */
+
+
+
+.whatsapp-float-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 22px;
+  z-index: 9999;
+  animation: floatWABtn 2.7s infinite alternate ease-in-out;
+}
+.whatsapp-float-btn a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  background: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #25d36699, 0 0 8px #25d36644;
+  transition: box-shadow 0.21s, transform 0.23s;
+  cursor: pointer;
+  border: 3px solid #fff;
+}
+
+.whatsapp-float-btn img {
+  width: 44px;
+  height: 44px;
+  pointer-events: none;
+}
+
+.whatsapp-float-btn a:hover {
+  box-shadow: 0 0 32px #25d366cc, 0 0 14px #25d36699;
+  transform: scale(1.09);
+  /* glowing effect */
+}
+
+@keyframes floatWABtn {
+  0%   { transform: translateY(0px);}
+  50%  { transform: translateY(-14px);}
+  100% { transform: translateY(0px);}
+}
+
+/* --- FOOTER --- */
 .main-footer {
-  margin-top: auto;
-  background: #388291;
+  position: relative;
+  background: linear-gradient(180deg, #1f4450 0%, #326b79 100%);
   color: #e9ecef;
   font-family: 'Segoe UI', Arial, sans-serif;
-  padding: 30px 0 10px 0;
+  padding: 50px 0 15px 0;
+  overflow: hidden;
 }
 
-/* Footer content layout */
+/* Strong glowing top edge */
+.footer-top-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #21aac5, #43e8c2, #21aac5);
+  background-size: 200% 100%;
+  animation: glowFlow 3.5s linear infinite;
+  box-shadow: 0 0 18px #21aac5;
+}
+@keyframes glowFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
 .footer-content {
   display: flex;
   flex-wrap: wrap;
@@ -153,134 +409,309 @@ tr:hover {
 }
 
 .footer-col {
-  flex: 1 1 210px;
+  flex: 1 1 220px;
   margin: 0 14px 26px 14px;
-  min-width: 200px;
+  min-width: 230px;
 }
 
+/* --- Brand Section --- */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
 .footer-logo {
-  width: 50px;
-  margin-bottom: 13px;
+  width: 56px;
+  height: auto;
+}
+.footer-company-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  align-self: flex-end; /* Aligns the brand name under the logo */
 }
 
+/* Address & Map */
 .logo-address address {
   font-size: 1rem;
   margin-bottom: 10px;
   font-style: normal;
+  line-height: 1.6;
 }
-
 .map-link {
   display: inline-block;
   color: #4eace3;
-  background: transparent;
-  padding: 2px 0;
   text-decoration: underline;
-  margin-top: 5px;
-  transition: color 0.2s;
+  margin-top: 6px;
+  transition: all 0.3s;
 }
-
 .map-link:hover {
-  color: #0a75ad;
+  color: #00d4ff;
+  transform: translateY(-2px);
 }
 
+/* Services */
 .footer-services ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-.footer-services li {
-  margin-bottom: 7px;
-}
-
+.footer-services li { margin-bottom: 7px; }
 .footer-services a {
   color: #e9ecef;
   text-decoration: none;
   transition: color 0.2s;
 }
+.footer-services a:hover { color: #43cea2; }
 
-.footer-services a:hover {
-  color: #4eace3;
-}
-
+/* Contact */
 .contact-info strong {
   font-weight: 600;
   color: #4eace3;
 }
-
 .contact-info a {
   color: #e9ecef;
   text-decoration: underline;
   transition: color 0.2s;
 }
+.contact-info a:hover { color: #43cea2; }
 
-.contact-info a:hover {
-  color: #0a75ad;
-}
-
+/* Social Icons */
 .footer-social {
   margin-top: 16px;
   display: flex;
   gap: 13px;
 }
-
 .footer-social .icon {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #4eace3;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 21px;
-  transition: background 0.2s, color 0.2s;
+  font-size: 18px;
+  transition: all 0.3s ease;
 }
-
-.footer-social .icon.linkedin    { background: #0077b5; }
-.footer-social .icon.instagram  { background: #e4405f; }
-.footer-social .icon.facebook   { background: #3b5998; }
-.footer-social .icon.twitter    { background: #55acee; }
-.footer-social .icon.whatsapp   { background: #25d366; box-shadow: 0 0 5px #25d366; animation: glow 1.5s infinite alternate; }
-
+.footer-social .linkedin { background: #0077b5; }
+.footer-social .instagram { background: #e4405f; }
+.footer-social .facebook { background: #3b5998; }
+.footer-social .twitter { background: #55acee; }
+.footer-social .whatsapp { background: #25d366; box-shadow: 0 0 8px #25d366; }
 .footer-social .icon:hover {
   background: #fff;
   color: #232f3e;
+  transform: translateY(-4px);
 }
 
-@keyframes glow {
-  from { box-shadow: 0 0 7px #25d366, 0 0 15px #25d366; }
-  to { box-shadow: 0 0 18px #25d366, 0 0 36px #25d366; }
-}
-
+/* Map Preview */
 .map-embed .map-preview {
-  width: 105px;
-  height: 70px;
-  border-radius: 7px;
-  transition: box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(40,62,81,0.12);
+  width: 120px;
+  height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(80,80,80,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .map-embed .map-preview:hover {
-  box-shadow: 0 4px 16px rgba(80,80,80,0.19);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
+/* Divider Line */
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #21aac5 0%, #ffffff33 50%, #21aac5 100%);
+  margin-top: 10px;
+  animation: flowDivider 6s linear infinite;
+}
+@keyframes flowDivider {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Copyright */
 .footer-copyright {
   text-align: center;
-  font-size: 1rem;
-  color: #b8b9be;
-  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #d7dee5;
+  margin-top: 16px;
 }
 
-/* Responsive footer */
 @media (max-width: 900px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
+  .footer-content { flex-direction: column; align-items: flex-start; }
+  .footer-col { margin-bottom: 20px; }
+  .footer-company-name { font-size: 1.5rem; }
+}
+
+
+
+/* Dropdown container positioning */
+.nav-links .dropdown {
+  position: relative;
+  user-select: none;
+}
+
+/* Dropdown menu with glass blurry effect */
+.nav-links .dropdown-menu {
+  display: block; /* keep block for positioning */
+  opacity: 0;
+  visibility: hidden;
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  min-width: 180px;
+  background: rgba(255, 255, 255, 0.28);
+  border-radius: 18px;
+  padding: 8px 0;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 500;
+}
+
+.nav-links .dropdown:hover .dropdown-menu,
+.nav-links .dropdown.open > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+}
+@media (max-width: 700px) {
+  .nav-links .dropdown-menu {
+    position: static;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    background: transparent;
+    padding-left: 20px;
   }
-  .footer-col {
-    margin-bottom: 18px;
+}
+/* Dropdown menu items styling */
+.nav-links .dropdown-menu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dropdown links styling */
+.nav-links .dropdown-menu a {
+  display: block;
+  color: var(--nav-link);
+  padding: 12px 20px;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 14px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Dropdown links hover effect */
+.nav-links .dropdown-menu a:hover {
+  background: rgba(33, 170, 197, 0.1);
+  color: var(--nav-link-hover);
+}
+
+/* Mobile Styles for hamburger menu */
+@media (max-width: 700px) {
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    right: 0;
+    width: 70vw;
+    max-width: 280px;
+    height: 100vh;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: -3px 0 15px rgb(0 0 0 / 0.1);
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 25px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 2000;
+  }
+  
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  /* Make dropdown menus inside mobile menu static and visible on tap */
+  .nav-links .dropdown-menu {
+    position: static;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    padding-left: 20px;
+    display: none; /* initially hidden */
+  }
+
+  /* Show dropdown menu on tap (via JS toggle) */
+  .nav-links .dropdown.open > .dropdown-menu {
+    display: block;
+  }
+
+  /* Dropdown parent items styling for mobile */
+  .nav-links .dropdown > a,
+  .nav-links .dropdown {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /* Hamburger button style */
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2.1em;
+    color: var(--nav-link);
+    margin-left: 14px;
+    cursor: pointer;
   }
 }
 
- 
+/* Hide hamburger on desktop */
+@media (min-width: 701px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+
+
+
+/* .whatsapp */
+
+/* Toggle Switch */
+.switch { position: relative; display: inline-block; width: 36px; height: 22px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute; top:0; left:0; right:0; bottom:0;
+  background: #ccc; border-radius: 22px; transition: .3s;
+}
+.slider:before {
+  content:""; position: absolute; left:3px; bottom:3px;
+  width:16px; height:16px; background:#fff; border-radius:50%;
+  transition:.3s; box-shadow:0 1px 2px #9992;
+}
+.switch input:checked + .slider { background: #25D366; }
+.switch input:disabled + .slider { background: #bdebc6; opacity:1; }
+.switch input:checked + .slider:before { transform: translateX(14px); }
+
+.cookie-actions { text-align:center; margin-top:19px; }
+.cookie-actions button {
+  font-size:15px; font-weight:500; cursor:pointer;
+  padding:8px 22px; border-radius:7px; border:none; margin:0 7px;
+  transition: background 0.15s;
+}
+.cookie-actions .save { background:#e3ecff; color:#243861; }
+.cookie-actions .save:hover { background:#d0dcf5; }
+.cookie-actions .accept { background:#25D366; color:white; }
+.cookie-actions .accept:hover { background:#21b75a; }

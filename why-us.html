@@ -1,77 +1,255 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stusoft - PSRComputers</title>
-  <link rel="stylesheet" href="product-style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Choose Us | PSR Computers</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="company.css" />
 </head>
 <body>
-  <!-- Logo/Header -->
-  <header class="product-header-simple">
-    <img src="images/logo.png" alt="PSRComputers Logo" class="product-logo" />
-    <span class="product-brand">PSRComputers</span>
-  </header>
 
-  <main class="product-container">
-    <div class="product-flex">
-      <!-- Main Content -->
-      <section class="product-content">
-        <h1>Exam Tracking Software</h1>
-        <div class="tagline">
-          Revolutionize your institution's examination process with real-time analytics, organized scheduling, and actionable insights.
-        </div>
-        <p>
-          <strong>PSRComputers Exam Tracking</strong> empowers educators and administrators to plan, execute, and monitor exams seamlessly, ensuring transparency and efficient result management.
-        </p>
-        <ul class="features-list">
-          <li>Automated exam scheduling and conflict detection</li>
-          <li>Customizable grading rubrics and results publication</li>
-          <li>Detailed performance dashboards</li>
-          <li>Instant notification for students and staff</li>
-          <li>Comprehensive, exportable reports</li>
-          <li>Secure, role-based access</li>
+
+   <!-- Navigation Bar -->
+<header>
+  <div class="nav-blur">
+    <div class="container nav-flex">
+      <div class="brand">
+        <img src="images/logo.png" alt="PSRComputers Logo" class="logo" />
+        <span class="company-name">PSRComputers</span>
+      </div>
+
+      <nav>
+        <ul class="nav-links" id="navbar-links">
+          <li><a href="index.html">Home</a></li>
+
+          <!-- PRODUCT DROPDOWN -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">
+              Product <i class="fas fa-caret-down dropdown-icon"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="exam.html">Exam Tracking</a></li>
+              <li><a href="fee.html">Fee Tracking</a></li>
+              <li><a href="library.html">Library</a></li>
+              <li><a href="paysoft.html">Paysoft</a></li>
+              <li><a href="contax.html">Contax</a></li>
+
+              <!-- NESTED DROPDOWN -->
+              <li class="dropdown-sub">
+                <a href="#" class="dropdown-sub-toggle">
+                  Development <i class="fas fa-caret-right sub-icon"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                  <li><a href="leavesoft.html">Leavesoft</a></li>
+                  <li><a href="stusoft.html">Stusoft</a></li>
+                  <li><a href="inventory.html">Inventory</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <!-- ABOUT -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">
+              About <i class="fas fa-caret-down dropdown-icon"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="company.html">Company</a></li>
+              <li><a href="why-us.html">Why Us</a></li>
+            </ul>
+          </li>
+
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contactus.html">ContactUs</a></li>
+          <li><a href="news.html">News</a></li>
         </ul>
-        <a href="contact.html" class="btn-back">Request Demo</a>
-        <a href="index.html" class="btn-back-secondary">← Home</a>
-      </section>
-      <!-- Image Slider -->
-      <aside class="product-slider">
-        <div class="slider-container" id="examSlider">
-          <img src="software-asset-management-tracking-best-practices_03.jpg" alt="Exam Tracking UI" style="opacity:1;">
-          <img src="7338965794235855software.jpg" alt="Software Screenshot" style="opacity:0;">
-                    <div class="slider-controls" id="sliderDots">
-            <div class="slider-btn active" data-index="0"></div>
-            <div class="slider-btn" data-index="1"></div>
-            <div class="slider-btn" data-index="2"></div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </main>
+      </nav>
 
-  <footer class="main-footer">
-    <div class="footer-content">
-      <div class="footer-col logo-address">
+      <!-- Hamburger for mobile -->
+      <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<!-- Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" style="
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1950&q=80')
+    center/cover no-repeat;
+  ">
+    <h1>Why Choose PSR Computers</h1>
+    <p>Trusted Technology Partner Since 1994 — Delivering Innovation, Reliability, and Support.</p>
+  </section>
+
+  <!-- WHY US CONTENT -->
+  <div class="container">
+    <section class="section">
+      <p>
+        <strong>P.S.R. Computers</strong> has been at the forefront of integrating cutting-edge information technology into real-world business and educational operations. Since our inception in <strong>1994</strong>, we’ve worked tirelessly to deliver practical, innovative, and dependable software solutions that address the evolving needs of our clients — making their day-to-day administrative and management tasks simpler, faster, and smarter.
+      </p>
+    </section>
+
+    <hr class="line-separator" />
+
+    <section class="section">
+      <h2>Commitment to Excellence</h2>
+      <p>
+        Our success story is built on a simple principle — <strong>consistent innovation and unmatched client support</strong>. The software systems running at numerous educational institutions and enterprises today stand as living proof of our long-standing commitment to excellence. Every product we deliver is backed by deep domain expertise, continuous updates, and proactive service.
+      </p>
+      <p>
+        Our clients trust us not only for the quality of our solutions but also for the <strong>after-sales service</strong> we provide. In an industry where technology evolves rapidly, we ensure that our clients always stay ahead through timely updates, hands-on training, and customized enhancements. This dedication to post-deployment care has become a defining feature of our brand.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Client-Centric Philosophy</h2>
+      <p>
+        At PSR Computers, every project begins with understanding the client's vision, challenges, and long-term goals. Our solutions are designed not just to meet the requirements of today but to scale seamlessly for the future. Whether it’s an educational institution managing thousands of student records or a corporate enterprise streamlining payroll, we craft solutions that make technology feel effortless.
+      </p>
+      <p>
+        We take pride in our growing clientele, a reflection of our commitment to <strong>transparency, performance, and reliability</strong>. Each satisfied client stands as a testament to our dedication and capability to deliver measurable impact.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Vision for the Future</h2>
+      <p>
+        With technology evolving faster than ever, PSR Computers continues to invest in innovation. Our goal is to bring <strong>“informatics at your fingertips”</strong> — empowering institutions and businesses to access insights, automate workflows, and make data-driven decisions effortlessly.
+      </p>
+      <p>
+        As part of our growth strategy, we are expanding our operations to multiple cities, ensuring that our <strong>“No Holds Barred”</strong> service philosophy reaches every client, no matter how remotely located. We believe that great technology should be accessible everywhere — and our upcoming regional offices will make that a reality.
+      </p>
+    </section>
+
+    <hr class="line-separator" />
+
+    <section class="section">
+      <h2>Why PSR Computers?</h2>
+      <div class="product-list">
+        <div class="product-card">
+          <h3>✔ Decades of Experience</h3>
+          <p>Over 30 years of hands-on expertise in educational and enterprise software development.</p>
+        </div>
+        <div class="product-card">
+          <h3>✔ Proven Client Satisfaction</h3>
+          <p>Trusted by a wide range of institutions for reliability, scalability, and consistent performance.</p>
+        </div>
+        <div class="product-card">
+          <h3>✔ Unmatched After-Sales Support</h3>
+          <p>We stay with our clients post-deployment, providing ongoing assistance and upgrades.</p>
+        </div>
+        <div class="product-card">
+          <h3>✔ Custom-Built Solutions</h3>
+          <p>Every software solution is uniquely tailored to meet client-specific workflows and goals.</p>
+        </div>
+        <div class="product-card">
+          <h3>✔ Ethical & Transparent Practices</h3>
+          <p>Your data remains your property — stored securely at your end, not on external servers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p>
+        <strong>At P.S.R. Computers</strong>, we don’t just build software — we build relationships, trust, and a shared vision for digital transformation. Our legacy of reliability, innovation, and personalized service continues to set us apart in the ever-evolving world of information technology.
+      </p>
+    </section>
+  </div>
+
+
+  <!-- WhatsApp Floating Button -->
+<div class="whatsapp-float-btn">
+  <a href="https://wa.me/918448663060" target="_blank" aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" />
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="footer-top-glow"></div>
+  <div class="footer-content">
+    <!-- Logo & Address -->
+    <div class="footer-col logo-address">
+      <div class="footer-brand">
         <img src="images/logo.png" alt="PSR Computers Logo" class="footer-logo" />
-        <address>
-          <h4>Office Address</h4>
-          Plot no. 165, First Floor,<br />
-          Pocket 1, Rohini Sector 25,<br />
-          Delhi 110085
-        </address>
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+first+floor,+pocket+1+,rohini+sector+25+delhi+110085"
-          target="_blank"
-          class="map-link"
-          >View on Map</a
-        >
+        <span class="footer-company-name">PSRComputers</span>
+      </div>
+
+      <address>
+        <h4>Office Address</h4>
+        Plot no. 165, First Floor,<br />
+        Pocket 1, Rohini Sector 25,<br />
+        Delhi 110085
+      </address>
+
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+First+Floor,+Pocket+1,+Rohini+Sector+25,+Delhi+110085"
+        target="_blank"
+        class="map-link"
+      >
+        📍 View on Map
+      </a>
+    </div>
+
+    <!-- Services -->
+    <div class="footer-col footer-services">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">Payroll Automation</a></li>
+        <li><a href="#">API Integration</a></li>
+        <li><a href="#">IT Consulting</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col contact">
+      <h4>Contact</h4>
+      <div class="contact-info">
+        <div>
+          <strong>Email:</strong><br />
+          <a href="mailto:psrcomputers@gmail.com">psrcomputers@gmail.com</a><br />
+          <a href="mailto:sudeep.palimar@psrcomputers.com">sudeep.palimar@psrcomputers.com</a><br />
+          <a href="mailto:shubhadeepa.s@gmail.com">shubhadeepa.s@gmail.com</a>
+        </div>
+        <div>
+          <strong>Phone:</strong><br />
+          <a href="tel:+918448663060">+91 8448663060</a><br />
+          <a href="tel:+919811250222">+91 9811250222</a>
+        </div>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://linkedin.com" class="icon linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://instagram.com" class="icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" class="icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" class="icon twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/918448663060" class="icon whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
-    <div class="footer-copyright">
-      © <span id="year"></span> PSR Computers. All Rights Reserved.
+
+    <!-- Map -->
+    <div class="footer-col map-embed">
+      <h4>Location Map</h4>
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+First+Floor,+Pocket+1,+Rohini+Sector+25,+Delhi+110085"
+        target="_blank"
+      >
+        <img src="images/map.png" alt="Map Preview" class="map-preview" />
+      </a>
     </div>
-  </footer>
-  <script src="product.js"></script>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-copyright">
+    © <span id="year"></span> PSR Computers. All Rights Reserved.
+  </div>
+</footer>
+
 </body>
 </html>

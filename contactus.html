@@ -1,77 +1,226 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stusoft - PSRComputers</title>
-  <link rel="stylesheet" href="product-style.css" />
+  <title>PSRComputers - Home</title>
+   <link rel="stylesheet" href="comapny.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Logo/Header -->
-  <header class="product-header-simple">
-    <img src="images/logo.png" alt="PSRComputers Logo" class="product-logo" />
-    <span class="product-brand">PSRComputers</span>
-  </header>
 
-  <main class="product-container">
-    <div class="product-flex">
-      <!-- Main Content -->
-      <section class="product-content">
-        <h1>Exam Tracking Software</h1>
-        <div class="tagline">
-          Revolutionize your institution's examination process with real-time analytics, organized scheduling, and actionable insights.
-        </div>
-        <p>
-          <strong>PSRComputers Exam Tracking</strong> empowers educators and administrators to plan, execute, and monitor exams seamlessly, ensuring transparency and efficient result management.
-        </p>
-        <ul class="features-list">
-          <li>Automated exam scheduling and conflict detection</li>
-          <li>Customizable grading rubrics and results publication</li>
-          <li>Detailed performance dashboards</li>
-          <li>Instant notification for students and staff</li>
-          <li>Comprehensive, exportable reports</li>
-          <li>Secure, role-based access</li>
+<!-- Navigation Bar -->
+<header>
+  <div class="nav-blur">
+    <div class="container nav-flex">
+      <div class="brand">
+        <img src="images/logo.png" alt="PSRComputers Logo" class="logo" />
+        <span class="company-name">PSRComputers</span>
+      </div>
+
+      <nav>
+        <ul class="nav-links" id="navbar-links">
+          <li><a href="index.html">Home</a></li>
+
+          <!-- PRODUCT DROPDOWN -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">
+              Product <i class="fas fa-caret-down dropdown-icon"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="exam.html">Exam Tracking</a></li>
+              <li><a href="fee.html">Fee Tracking</a></li>
+              <li><a href="library.html">Library</a></li>
+              <li><a href="paysoft.html">Paysoft</a></li>
+              <li><a href="contax.html">Contax</a></li>
+
+              <!-- NESTED DROPDOWN -->
+              <li class="dropdown-sub">
+                <a href="#" class="dropdown-sub-toggle">
+                  Development ><i class="fas fa-caret-right sub-icon"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                  <li><a href="leavesoft.html">Leavesoft</a></li>
+                  <li><a href="stusoft.html">Stusoft</a></li>
+                  <li><a href="inventory.html">Inventory</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <!-- ABOUT -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">
+              About <i class="fas fa-caret-down dropdown-icon"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="company.html">Company</a></li>
+              <li><a href="why-us.html">Why Us</a></li>
+            </ul>
+          </li>
+
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contactus.html">ContactUs</a></li>
+          <li><a href="news.html">News</a></li>
         </ul>
-        <a href="contact.html" class="btn-back">Request Demo</a>
-        <a href="index.html" class="btn-back-secondary">← Home</a>
-      </section>
-      <!-- Image Slider -->
-      <aside class="product-slider">
-        <div class="slider-container" id="examSlider">
-          <img src="software-asset-management-tracking-best-practices_03.jpg" alt="Exam Tracking UI" style="opacity:1;">
-          <img src="7338965794235855software.jpg" alt="Software Screenshot" style="opacity:0;">
-                    <div class="slider-controls" id="sliderDots">
-            <div class="slider-btn active" data-index="0"></div>
-            <div class="slider-btn" data-index="1"></div>
-            <div class="slider-btn" data-index="2"></div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </main>
+      </nav>
 
-  <footer class="main-footer">
-    <div class="footer-content">
-      <div class="footer-col logo-address">
-        <img src="images/logo.png" alt="PSR Computers Logo" class="footer-logo" />
-        <address>
-          <h4>Office Address</h4>
-          Plot no. 165, First Floor,<br />
-          Pocket 1, Rohini Sector 25,<br />
-          Delhi 110085
-        </address>
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+first+floor,+pocket+1+,rohini+sector+25+delhi+110085"
-          target="_blank"
-          class="map-link"
-          >View on Map</a
-        >
+      <!-- Hamburger for mobile -->
+      <button class="hamburger" id="hamburger">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<!-- Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <h1>Get In Touch With Us For More Information</h1>
+      <p>If you need help or have a question, we are here for you</p>
+
+      <div class="contact-grid">
+        <div class="contact-card pink">
+          <div class="icon-circle">
+            📧
+          </div>
+          <h3>Email</h3>
+          <a href="mailto:psrcomputers@gmail.com">psrcomputers@gmail.com</a>
+        </div>
+
+        <div class="contact-card pink">
+          <div class="icon-circle">
+            ☎️
+          </div>
+          <h3>Phone</h3>
+          <a href="tel:+9189811250222">+91 89811250222</a>
+        </div>
+
+        <div class="contact-card blue">
+          <div class="icon-circle">
+            📍
+          </div>
+          <h3>Address</h3>
+          <p>
+            Plot No. 73, Block B-1, Sewak Park Extension,<br>
+            Near NSUT, Uttam Nagar, New Delhi – 110059
+          </p>
+        </div>
       </div>
     </div>
-    <div class="footer-copyright">
-      © <span id="year"></span> PSR Computers. All Rights Reserved.
+  </section>
+
+  <!-- Contact / Email Section -->
+<section class="contact-wrapper">
+  <div class="contact-container">
+    <h2>Get in Touch</h2>
+    <p>Have a question, feedback, or want to collaborate? Fill out the form below and we’ll get back to you soon.</p>
+
+    <form id="emailForm">
+      <div class="input-row">
+        <div class="input-group">
+          <label for="userEmail">Your Email</label>
+          <input type="email" id="userEmail" name="userEmail" required placeholder="you@example.com">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+      </div>
+
+      <button type="submit" class="send-btn">Send Message</button>
+      <div id="status"></div>
+    </form>
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="footer-top-glow"></div>
+  <div class="footer-content">
+    <!-- Logo & Address -->
+    <div class="footer-col logo-address">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="PSR Computers Logo" class="footer-logo" />
+        <span class="footer-company-name">PSRComputers</span>
+      </div>
+
+      <address>
+        <h4>Office Address</h4>
+        Plot no. 165, First Floor,<br />
+        Pocket 1, Rohini Sector 25,<br />
+        Delhi 110085
+      </address>
+
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+First+Floor,+Pocket+1,+Rohini+Sector+25,+Delhi+110085"
+        target="_blank"
+        class="map-link"
+      >
+        📍 View on Map
+      </a>
     </div>
-  </footer>
-  <script src="product.js"></script>
-</body>
-</html>
+
+    <!-- Services -->
+    <div class="footer-col footer-services">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">Payroll Automation</a></li>
+        <li><a href="#">API Integration</a></li>
+        <li><a href="#">IT Consulting</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col contact">
+      <h4>Contact</h4>
+      <div class="contact-info">
+        <div>
+          <strong>Email:</strong><br />
+          <a href="mailto:psrcomputers@gmail.com">psrcomputers@gmail.com</a><br />
+          <a href="mailto:sudeep.palimar@psrcomputers.com">sudeep.palimar@psrcomputers.com</a><br />
+          <a href="mailto:shubhadeepa.s@gmail.com">shubhadeepa.s@gmail.com</a>
+        </div>
+        <div>
+          <strong>Phone:</strong><br />
+          <a href="tel:+918448663060">+91 8448663060</a><br />
+          <a href="tel:+919811250222">+91 9811250222</a>
+        </div>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://linkedin.com" class="icon linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://instagram.com" class="icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" class="icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" class="icon twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/918448663060" class="icon whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="footer-col map-embed">
+      <h4>Location Map</h4>
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+First+Floor,+Pocket+1,+Rohini+Sector+25,+Delhi+110085"
+        target="_blank"
+      >
+        <img src="images/map.png" alt="Map Preview" class="map-preview" />
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-copyright">
+    © <span id="year"></span> PSR Computers. All Rights Reserved.
+  </div>
+</footer>
+
+
+
+  <script src="script.js"></script>

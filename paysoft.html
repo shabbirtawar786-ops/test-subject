@@ -22,6 +22,7 @@
         <ul class="nav-links" id="navbar-links">
           <li><a href="index.html">Home</a></li>
 
+          <!-- PRODUCT DROPDOWN -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle">
               Product <i class="fas fa-caret-down dropdown-icon"></i>
@@ -32,11 +33,22 @@
               <li><a href="library.html">Library</a></li>
               <li><a href="paysoft.html">Paysoft</a></li>
               <li><a href="contax.html">Contax</a></li>
-              <li><a href="leavesoft.html">Leavesoft</a></li>
-              <li><a href="stusoft.html">Stusoft</a></li>
+
+              <!-- NESTED DROPDOWN -->
+              <li class="dropdown-sub">
+                <a href="#" class="dropdown-sub-toggle">
+                  Development <i class="fas fa-caret-right sub-icon"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                  <li><a href="leavesoft.html">Leavesoft</a></li>
+                  <li><a href="stusoft.html">Stusoft</a></li>
+                  <li><a href="inventory.html">Inventory</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
 
+          <!-- ABOUT -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle">
               About <i class="fas fa-caret-down dropdown-icon"></i>
@@ -46,26 +58,23 @@
               <li><a href="why-us.html">Why Us</a></li>
             </ul>
           </li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="contact.html">ContactUs</a></li>
-          <li><a href="news.html">News</a></li>
-          
-        </ul>
 
-        <!-- Hamburger -->
-        <button class="hamburger" id="navbar-hamburger" aria-label="Toggle Menu">
-          <i class="fas fa-bars"></i>
-          
-        </button>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contactus.html">ContactUs</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
       </nav>
+
+      <!-- Hamburger for mobile -->
+      <button class="hamburger" id="hamburger">&#9776;</button>
     </div>
   </div>
 </header>
 
-<!-- Overlay for dim background -->
-<div class="menu-overlay" id="menu-overlay"></div>
+<!-- Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
 
-
+<!-- content  -->
   <div id="paysoftPageContent">
   <section class="paysoft-hero" id="paysoft">
     <div class="left">
@@ -149,7 +158,7 @@
 <!-- Action CTA -->
 <section class="cta" id="contact">
   <div class="cta-box">
-    <h2>Power Up Your Payroll with PaySoft</h2>
+    <h2>"Power Up Your Payroll with PaySoft"</h2>
     <p>Manage salaries, compliance, and staff data with precision, speed, and total control. 
        Experience the future of payroll management built for modern organizations.</p>
     <div class="cta-buttons">
@@ -212,63 +221,88 @@
   </a>
 </div>
 
-<!-- footer -->
-  <footer class="main-footer">
-    <div class="footer-content">
-      <div class="footer-col logo-address">
-        <img src="images/logo.png" alt="PSR Computers Logo" class="footer-logo">
-        <address>
-          <h4>Office Address</h4>
-          Plot no. 165, First Floor,<br>
-          Pocket 1, Rohini Sector 25,<br>
-          Delhi 110085
-        </address>
-        <a href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+first+floor,+pocket+1+,rohini+sector+25+delhi+110085"
-           target="_blank" class="map-link">View on Map</a>
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="footer-top-glow"></div>
+  <div class="footer-content">
+    <!-- Logo & Address -->
+    <div class="footer-col logo-address">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="PSR Computers Logo" class="footer-logo" />
+        <span class="footer-company-name">PSRComputers</span>
       </div>
-      <div class="footer-col footer-services">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#">Web Development</a></li>
-          <li><a href="#">Payroll Automation</a></li>
-          <li><a href="#">API Integration</a></li>
-          <li><a href="#">IT Consulting</a></li>
-        </ul>
-      </div>
-      <div class="footer-col contact">
-        <h4>Contact</h4>
-        <div class="contact-info">
-          <div>
-            <strong>Email:</strong>
-            <a href="mailto:psrcomputers@gmail.com">psrcomputers@gmail.com</a><br>
-            <a href="mailto:sudeep.palimar@psrcomputers.com">sudeep.palimar@psrcomputers.com</a><br>
-            <a href="mailto:shubhadeepa.s@gmail.com">shubhadeepa.s@gmail.com</a>
-          </div>
-          <div>
-            <strong>Phone:</strong>
-            <a href="tel:+918448663060">8448663060</a>,
-            <a href="tel:+919811250222">9811250222</a>
-          </div>
+
+      <address>
+        <h4>Office Address</h4>
+        Plot no. 165, First Floor,<br />
+        Pocket 1, Rohini Sector 25,<br />
+        Delhi 110085
+      </address>
+
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+First+Floor,+Pocket+1,+Rohini+Sector+25,+Delhi+110085"
+        target="_blank"
+        class="map-link"
+      >
+        📍 View on Map
+      </a>
+    </div>
+
+    <!-- Services -->
+    <div class="footer-col footer-services">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">Payroll Automation</a></li>
+        <li><a href="#">API Integration</a></li>
+        <li><a href="#">IT Consulting</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col contact">
+      <h4>Contact</h4>
+      <div class="contact-info">
+        <div>
+          <strong>Email:</strong><br />
+          <a href="mailto:psrcomputers@gmail.com">psrcomputers@gmail.com</a><br />
+          <a href="mailto:sudeep.palimar@psrcomputers.com">sudeep.palimar@psrcomputers.com</a><br />
+          <a href="mailto:shubhadeepa.s@gmail.com">shubhadeepa.s@gmail.com</a>
         </div>
-        <div class="footer-social">
-          <a href="https://linkedin.com/in/your-linkedin-id" class="icon linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://instagram.com/your-instagram-id" class="icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://facebook.com/your-facebook-id" class="icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://twitter.com/your-twitter-id" class="icon twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="https://wa.me/918448663060" class="icon whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <div>
+          <strong>Phone:</strong><br />
+          <a href="tel:+918448663060">+91 8448663060</a><br />
+          <a href="tel:+919811250222">+91 9811250222</a>
         </div>
       </div>
-      <div class="footer-col map-embed">
-        <h4>Location Map</h4>
-        <a href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+first+floor,+pocket+1+,rohini+sector+25+delhi+110085" target="_blank">
-          <img src="map-preview.png" alt="Click to view map" class="map-preview">
-        </a>
+
+      <div class="footer-social">
+        <a href="https://linkedin.com" class="icon linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://instagram.com" class="icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" class="icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" class="icon twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/918448663060" class="icon whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
-    <div class="footer-copyright">
-      © <span id="year"></span> PSR Computers. All Rights Reserved.
+
+    <!-- Map -->
+    <div class="footer-col map-embed">
+      <h4>Location Map</h4>
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+First+Floor,+Pocket+1,+Rohini+Sector+25,+Delhi+110085"
+        target="_blank"
+      >
+        <img src="images/map.png" alt="Map Preview" class="map-preview" />
+      </a>
     </div>
-  </footer>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-copyright">
+    © <span id="year"></span> PSR Computers. All Rights Reserved.
+  </div>
+</footer>
   <script src="product.js"></script>
 </body>
 </html>

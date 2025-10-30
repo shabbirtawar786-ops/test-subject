@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Exam Tracking - PSRComputers</title>
   <link rel="stylesheet" href="product-style.css" />
-    <!-- <link rel="stylesheet" href="style.css" /> -->
 </head>
 <body>
 
- 
-<!-- Navigation Bar -->
+
+  <!-- Navigation Bar -->
 <header>
   <div class="nav-blur">
     <div class="container nav-flex">
@@ -18,11 +17,12 @@
         <img src="images/logo.png" alt="PSRComputers Logo" class="logo" />
         <span class="company-name">PSRComputers</span>
       </div>
- 
-    <nav>
+
+      <nav>
         <ul class="nav-links" id="navbar-links">
           <li><a href="index.html">Home</a></li>
 
+          <!-- PRODUCT DROPDOWN -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle">
               Product <i class="fas fa-caret-down dropdown-icon"></i>
@@ -33,11 +33,22 @@
               <li><a href="library.html">Library</a></li>
               <li><a href="paysoft.html">Paysoft</a></li>
               <li><a href="contax.html">Contax</a></li>
-              <li><a href="leavesoft.html">Leavesoft</a></li>
-              <li><a href="stusoft.html">Stusoft</a></li>
+
+              <!-- NESTED DROPDOWN -->
+              <li class="dropdown-sub">
+                <a href="#" class="dropdown-sub-toggle">
+                  Development <i class="fas fa-caret-right sub-icon"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                  <li><a href="leavesoft.html">Leavesoft</a></li>
+                  <li><a href="stusoft.html">Stusoft</a></li>
+                  <li><a href="inventory.html">Inventory</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
 
+          <!-- ABOUT -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle">
               About <i class="fas fa-caret-down dropdown-icon"></i>
@@ -47,121 +58,250 @@
               <li><a href="why-us.html">Why Us</a></li>
             </ul>
           </li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="contact.html">ContactUs</a></li>
-          <li><a href="news.html">News</a></li>
-          
-        </ul>
 
-        <!-- Hamburger -->
-        <button class="hamburger" id="navbar-hamburger" aria-label="Toggle Menu">
-          <i class="fas fa-bars"></i>
-          
-        </button>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contactus.html">ContactUs</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
       </nav>
+
+      <!-- Hamburger for mobile -->
+      <button class="hamburger" id="hamburger">&#9776;</button>
     </div>
   </div>
 </header>
 
-<!-- Overlay for dim background -->
-<div class="menu-overlay" id="menu-overlay"></div>
-  <main class="product-container">
-    <div class="product-flex">
-      <!-- Main Content -->
-      <section class="product-content">
-        <h1>Fee Tracking Software</h1>
-        <div class="tagline">
-          Revolutionize your institution's examination process with real-time analytics, organized scheduling, and actionable insights.
-        </div>
-        <p>
-          <strong>PSRComputers Exam Tracking</strong> empowers educators and administrators to plan, execute, and monitor exams seamlessly, ensuring transparency and efficient result management.
-        </p>
-        <ul class="features-list">
-          <li>Automated exam scheduling and conflict detection</li>
-          <li>Customizable grading rubrics and results publication</li>
-          <li>Detailed performance dashboards</li>
-          <li>Instant notification for students and staff</li>
-          <li>Comprehensive, exportable reports</li>
-          <li>Secure, role-based access</li>
-        </ul>
-        <a href="contact.html" class="btn-back">Request Demo</a>
-        <a href="index.html" class="btn-back-secondary">← Home</a>
-      </section>
+<!-- Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
 
-      <!-- Image Slider -->
-      <aside class="product-slider">
-        <div class="slider-container" id="examSlider">
-          <img src="software-asset-management-tracking-best-practices_03.jpg" alt="Exam Tracking UI" style="opacity:1;">
-          <img src="7338965794235855software.jpg" alt="Software Screenshot" style="opacity:0;">
-          <img src="images.jpg" alt="Dashboard Diagram" style="opacity:0;">
-          <div class="slider-controls" id="sliderDots">
-            <div class="slider-btn active" data-index="0"></div>
-            <div class="slider-btn" data-index="1"></div>
-            <div class="slider-btn" data-index="2"></div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </main>
-
-  <!-- footer -->
-  <footer class="main-footer">
-    <div class="footer-content">
-      <div class="footer-col logo-address">
-        <img src="images/logo.png" alt="PSR Computers Logo" class="footer-logo">
-        <address>
-          <h4>Office Address</h4>
-          Plot no. 165, First Floor,<br>
-          Pocket 1, Rohini Sector 25,<br>
-          Delhi 110085
-        </address>
-        <a href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+first+floor,+pocket+1+,rohini+sector+25+delhi+110085"
-           target="_blank" class="map-link">View on Map</a>
-      </div>
-      <div class="footer-col footer-services">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#">Web Development</a></li>
-          <li><a href="#">Payroll Automation</a></li>
-          <li><a href="#">API Integration</a></li>
-          <li><a href="#">IT Consulting</a></li>
-        </ul>
-      </div>
-      <div class="footer-col contact">
-        <h4>Contact</h4>
-        <div class="contact-info">
-          <div>
-            <strong>Email:</strong>
-            <a href="mailto:psrcomputers@gmail.com">psrcomputers@gmail.com</a><br>
-            <a href="mailto:sudeep.palimar@psrcomputers.com">sudeep.palimar@psrcomputers.com</a><br>
-            <a href="mailto:shubhadeepa.s@gmail.com">shubhadeepa.s@gmail.com</a>
-          </div>
-          <div>
-            <strong>Phone:</strong>
-            <a href="tel:+918448663060">8448663060</a>,
-            <a href="tel:+919811250222">9811250222</a>
-          </div>
-        </div>
-        <div class="footer-social">
-          <a href="https://linkedin.com/in/your-linkedin-id" class="icon linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://instagram.com/your-instagram-id" class="icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://facebook.com/your-facebook-id" class="icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://twitter.com/your-twitter-id" class="icon twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="https://wa.me/918448663060" class="icon whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-      <div class="footer-col map-embed">
-        <h4>Location Map</h4>
-        <a href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+first+floor,+pocket+1+,rohini+sector+25+delhi+110085" target="_blank">
-          <img src="map-preview.png" alt="Click to view map" class="map-preview">
-        </a>
+<!-- content  -->
+  <div id="paysoftPageContent">
+  <section class="paysoft-hero" id="paysoft">
+    <div class="left">
+      <h1>FeeSoft</h1>
+      <div class="tagline">“Simplify Fee Collection. Empower Institutions.”</div>
+      <p class="lead">
+        Fee Management System, better known as FeeSoft, is a complete school fee accounting and collection solution designed to simplify fee tracking, automate reporting, and strengthen financial transparency for educational institutions.
+        Developed with deep domain expertise, FeeSoft ensures accuracy in fee computation, seamless handling of collections across all heads, and secure record management—all from one intuitive, user-friendly interface.
+      </p>
+      <div class="actions">
+        <button class="btn btn-primary" id="requestDemoBtn">Get a Demo</button>
+        <a class="btn btn-ghost" href="#features">See Features</a>
       </div>
     </div>
-    <div class="footer-copyright">
-      © <span id="year"></span> PSR Computers. All Rights Reserved.
-    </div>
-  </footer>
 
+    <!-- carousel -->
+    <div class="carousel-wrap" aria-label="PaySoft image carousel">
+      <div class="slider" id="carousel">
+        <div class="slider-track" id="sliderTrack">
+          <!-- Slide 1 -->
+          <div class="slide" data-tooltip="Dashboard Overview" data-index="0">
+            <img src="images/paysoft.png" alt="PaySoft Dashboard Overview" draggable="false">
+          </div>
+          <!-- Slide 2 -->
+          <div class="slide" data-tooltip="Salary Setup Page" data-index="1">
+            <img src="images/paysofta.png" alt="Salary Setup Page" draggable="false">
+          </div>
+          <!-- Slide 3 -->
+          <div class="slide" data-tooltip="Employee Management" data-index="2">
+            <img src="images/paysoftb.png" alt="Employee Management" draggable="false">
+          </div>
+          <!-- Slide 4 -->
+          <div class="slide" data-tooltip="Reports & Analytics" data-index="3">
+            <img src="images/paysofta.png" alt="Reports and Analytics" draggable="false">
+          </div>
+        </div>
+      </div>
+
+      <!-- dots -->
+      <div class="dots" id="dots" aria-hidden="false">
+        <div class="dot" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+        <div class="dot" data-index="2"></div>
+        <div class="dot" data-index="3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Definition + features -->
+  <section class="features" id="features">
+    <h2>Core Features</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3> Automated Fee Tracking</h3>
+        <p>Say goodbye to manual registers—FeeSoft automates fee collection across all categories such as tuition, transport, library, lab, or hostel fees.</p>
+      </div>
+      <div class="feature">
+        <h3>Configurable Heads & Payment Cycles:</h3>
+        <p>Flexible setup to define multiple fee heads and structures—quarterly, monthly, or customized—as per your institution’s policies.</p>
+      </div>
+      <div class="feature">
+        <h3>Instant Reports & Analytics:</h3>
+        <p>Generate detailed or summarized reports in just one click—collections, defaulters, audit summaries, departmental or education board reports, and more.</p>
+      </div>
+      <div class="feature">
+        <h3>Smart Error Control & Validation:</h3>
+        <p>Built-in controls detect inconsistencies, highlight missing entries, and automatically display students’ previous payment histories during entry or verification.</p>
+      </div>
+      <div class="feature">
+        <h3>Total Data Security:</h3>
+        <p>Your financial and student data remain completely secure, encrypted, and accessible only to authorized staff members.</p>
+      </div>
+      <div class="feature">
+        <h3>Scalable & Institution-Ready:</h3>
+        <p>Whether it’s a small school or a large academic network, FeeSoft adapts effortlessly to handle growing student counts, dynamic structures, and new requirements.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Action CTA -->
+<section class="cta" id="contact">
+  <div class="cta-box">
+    <h2>“Power Up Your Collections with FeeSoft”</h2>
+    <p>FeeSoft brings together precision, control, and simplicity—empowering schools and colleges with a reliable way to manage fee records, compliance reports, and student payment data all in one secure system.
+       It’s not just a fee collection tool—it’s your institution’s financial partner in efficiency and transparency.</p>
+    <div class="cta-buttons">
+      <button class="cta-btn primary" id="requestDemoBtnBottom">Request Demo</button>
+      <a href="#features" class="cta-btn secondary">See Features</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Lightbox (fullscreen) -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Image viewer">
+  <div class="overlay" id="lbOverlay"></div>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image" title="Previous">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="panel" id="lbPanel">
+    <img src="" alt="Fullscreen image" id="lbImage">
+  </div>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next image" title="Next">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="lb-close" id="lbClose" aria-label="Close viewer" title="Close">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</div>
+
+<!-- Demo Modal (contact form) -->
+<div class="modal" id="demoModal" role="dialog" aria-hidden="true" aria-labelledby="demoTitle">
+  <div class="backdrop" id="modalBackdrop"></div>
+  <div class="modal-box" role="document" aria-modal="true">
+    <div class="close-x" id="modalClose" title="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18M6 6l12 12" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <h3 id="demoTitle">Request a Demo</h3>
+    <p>Enter your email and a brief message — our team will contact you shortly to schedule your personalized demo.</p>
+
+    <label for="demoEmail">Email</label>
+    <input type="email" id="demoEmail" placeholder="you@company.com" required />
+
+    <label for="demoMessage">Message</label>
+    <textarea id="demoMessage" placeholder="Tell us about your requirements..."></textarea>
+
+    <div class="modal-actions">
+      <button class="btn cancel" id="modalCancel">Cancel</button>
+      <button class="btn send" id="modalSend">Send Request</button>
+    </div>
+  </div>
+</div>
+
+
+   <!-- WhatsApp Floating Button -->
+<div class="whatsapp-float-btn">
+  <a href="https://wa.me/918448663060" target="_blank" aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" />
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="footer-top-glow"></div>
+  <div class="footer-content">
+    <!-- Logo & Address -->
+    <div class="footer-col logo-address">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="PSR Computers Logo" class="footer-logo" />
+        <span class="footer-company-name">PSRComputers</span>
+      </div>
+
+      <address>
+        <h4>Office Address</h4>
+        Plot no. 165, First Floor,<br />
+        Pocket 1, Rohini Sector 25,<br />
+        Delhi 110085
+      </address>
+
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+First+Floor,+Pocket+1,+Rohini+Sector+25,+Delhi+110085"
+        target="_blank"
+        class="map-link"
+      >
+        📍 View on Map
+      </a>
+    </div>
+
+    <!-- Services -->
+    <div class="footer-col footer-services">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">Payroll Automation</a></li>
+        <li><a href="#">API Integration</a></li>
+        <li><a href="#">IT Consulting</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col contact">
+      <h4>Contact</h4>
+      <div class="contact-info">
+        <div>
+          <strong>Email:</strong><br />
+          <a href="mailto:psrcomputers@gmail.com">psrcomputers@gmail.com</a><br />
+          <a href="mailto:sudeep.palimar@psrcomputers.com">sudeep.palimar@psrcomputers.com</a><br />
+          <a href="mailto:shubhadeepa.s@gmail.com">shubhadeepa.s@gmail.com</a>
+        </div>
+        <div>
+          <strong>Phone:</strong><br />
+          <a href="tel:+918448663060">+91 8448663060</a><br />
+          <a href="tel:+919811250222">+91 9811250222</a>
+        </div>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://linkedin.com" class="icon linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://instagram.com" class="icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" class="icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" class="icon twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/918448663060" class="icon whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="footer-col map-embed">
+      <h4>Location Map</h4>
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Plot+no.+165,+First+Floor,+Pocket+1,+Rohini+Sector+25,+Delhi+110085"
+        target="_blank"
+      >
+        <img src="images/map.png" alt="Map Preview" class="map-preview" />
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-copyright">
+    © <span id="year"></span> PSR Computers. All Rights Reserved.
+  </div>
+</footer>
   <script src="product.js"></script>
 </body>
 </html>
