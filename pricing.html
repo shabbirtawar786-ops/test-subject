@@ -5,13 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing Plan | PSR Software</title>
+   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="pricing.css"/>
    </debugger>
   
 </head>
 <body>
-
-<!-- Navigation Bar -->
+<!-- nav bar -->
 <header>
   <div class="nav-blur">
     <div class="container nav-flex">
@@ -25,7 +25,8 @@
           <li><a href="index.html">Home</a></li>
 
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle"> Product <i class="fas fa-caret-down dropdown-icon"></i>
+            <a href="#" class="dropdown-toggle">
+              Product <i class="fas fa-caret-down dropdown-icon"></i>
             </a>
             <ul class="dropdown-menu">
               <li><a href="exam.html">Exam Tracking</a></li>
@@ -33,38 +34,42 @@
               <li><a href="library.html">Library</a></li>
               <li><a href="paysoft.html">Paysoft</a></li>
               <li><a href="contax.html">Contax</a></li>
-              <li><a href="leavesoft.html">Leavesoft</a></li>
-              <li><a href="stusoft.html">Stusoft</a></li>
+
+              <li class="dropdown-sub">
+                <a href="#" class="dropdown-sub-toggle">
+                  Development <i class="fas fa-caret-right sub-icon"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                  <li><a href="leavesoft.html">Leavesoft</a></li>
+                  <li><a href="stusoft.html">Stusoft</a></li>
+                  <li><a href="inventory.html">Inventory</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
 
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle">About <i class="fas fa-caret-down dropdown-icon"></i>
+            <a href="#" class="dropdown-toggle">
+              About <i class="fas fa-caret-down dropdown-icon"></i>
             </a>
             <ul class="dropdown-menu">
               <li><a href="company.html">Company</a></li>
               <li><a href="why-us.html">Why Us</a></li>
             </ul>
           </li>
+
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="contactus.html">ContactUs</a></li>
           <li><a href="news.html">News</a></li>
-          
         </ul>
-
-        <!-- Hamburger -->
-        <button class="hamburger" id="navbar-hamburger" aria-label="Toggle Menu">
-          <i class="fas fa-bars"></i>
-          
-        </button>
       </nav>
+
+      <button class="hamburger" id="hamburger">&#9776;</button>
     </div>
   </div>
 </header>
 
-<!-- Overlay for dim background -->
-<div class="menu-overlay" id="menu-overlay"></div>
-
+<div class="menu-overlay" id="menuOverlay"></div>
 
   <section class="pricing-section">
     <h1>Our Pricing Plan</h1>
@@ -179,8 +184,6 @@
     © <span id="year"></span> PSR Computers. All Rights Reserved.
   </div>
 </footer>
-
-
 
   <script src="script.js"></script>
 

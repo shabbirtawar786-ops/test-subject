@@ -92,82 +92,86 @@ body.no-scroll {
   color: var(--nav-link-hover);
 }
 
-/* ==========================
-   Smooth Dropdown Styling
-   ========================== */
+/* =============================
+   NAVBAR DROPDOWN (NO FLICKER)
+   ============================= */
 .dropdown {
   position: relative;
 }
 
+/* --- Dropdown Toggle --- */
 .dropdown > a {
   display: flex;
   align-items: center;
   gap: 4px;
-  cursor: pointer;
+  color: var(--nav-link);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 7px 13px;
+  border-radius: 18px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.dropdown-icon {
-  transition: transform 0.3s ease;
+.dropdown > a:hover {
+  background: rgba(33, 170, 197, 0.08);
+  color: var(--nav-link-hover);
 }
 
-.dropdown-icon.rotate {
-  transform: rotate(180deg);
+/* --- Invisible Hover Bridge (Prevents Flicker) --- */
+.dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 12px; /* acts as invisible hover zone */
 }
 
-/* Dropdown Menu */
+/* --- Dropdown Menu --- */
 .dropdown-menu {
   position: absolute;
-  top: 110%;
+  top: calc(100% + 8px);
   left: 0;
-  min-width: 200px;
+  min-width: 190px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 12px;
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(12px);
-  transition: all 0.28s ease;
-  z-index: 1000;
+  transform: translateY(10px);
   pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  z-index: 999;
 }
 
-/* Hover (Desktop) */
+/* --- Show Dropdown (on hover or JS class) --- */
 .dropdown:hover > .dropdown-menu,
+.dropdown.open > .dropdown-menu,
 .dropdown:focus-within > .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
-  transition-delay: 0.1s;
 }
 
-/* Prevent flicker */
-.dropdown-menu:hover {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* Dropdown Links */
+/* --- Dropdown Links --- */
 .dropdown-menu li a {
   display: block;
-  padding: 10px 16px;
   color: #000;
+  font-size: 15px;
   border-radius: 8px;
+  padding: 10px 16px;
   transition: background 0.25s ease, color 0.25s ease;
 }
 
 .dropdown-menu li a:hover {
-  background: rgba(33, 170, 197, 0.1);
+  background: rgba(33, 170, 197, 0.12);
   color: #21aac5;
 }
 
-/* ==========================
-   Nested Dropdown (Development)
-   ========================== */
+/* --- Nested Dropdown (Development) --- */
 .dropdown-sub {
   position: relative;
 }
@@ -178,7 +182,7 @@ body.no-scroll {
   align-items: center;
   color: #000;
   text-decoration: none;
-  padding: 10px 16px;
+  padding: 8px 16px;
   border-radius: 8px;
   transition: background 0.25s ease;
 }
@@ -194,7 +198,7 @@ body.no-scroll {
   transition: transform 0.3s ease;
 }
 
-/* Submenu */
+/* --- Submenu --- */
 .dropdown-submenu {
   position: absolute;
   top: 0;
@@ -202,31 +206,62 @@ body.no-scroll {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 12px;
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   min-width: 180px;
   opacity: 0;
   visibility: hidden;
-  transform: translateX(12px);
-  transition: all 0.28s ease;
+  transform: translateX(10px);
   pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
   z-index: 9999;
 }
 
-/* Show Nested Dropdown */
-.dropdown-sub:hover > .dropdown-submenu {
+/* --- Submenu show --- */
+.dropdown-sub:hover > .dropdown-submenu,
+.dropdown-sub.open > .dropdown-submenu {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
   pointer-events: auto;
 }
 
-/* Prevent flicker */
-.dropdown-submenu:hover {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
+/* --- Invisible hover bridge for nested menu --- */
+.dropdown-sub::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 12px;
+  height: 100%;
 }
+
+/* --- Mobile --- */
+@media (max-width: 700px) {
+  .dropdown-menu,
+  .dropdown-submenu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    background: transparent;
+    box-shadow: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .dropdown.open .dropdown-menu,
+  .dropdown-sub.open .dropdown-submenu {
+    max-height: 500px;
+  }
+
+  .dropdown::after,
+  .dropdown-sub::after {
+    display: none;
+  }
+}
+
 
 /* ==========================
    Hamburger & Overlay
