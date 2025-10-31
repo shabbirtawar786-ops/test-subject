@@ -1,8 +1,3 @@
-
-
-
-
-
 // Wait for DOM
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.querySelector(".hamburger");
@@ -40,8 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // Only run on mobile
       if (window.innerWidth <= 700) {
         e.preventDefault();
-
-        // Toggle the dropdown open/close
         parent.classList.toggle("open");
         if (icon) icon.classList.toggle("rotate");
       }
@@ -54,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
   subDropdownToggles.forEach(subToggle => {
     subToggle.addEventListener("click", e => {
       const parent = subToggle.parentElement;
-
       if (window.innerWidth <= 700) {
         e.preventDefault();
         parent.classList.toggle("open");
@@ -76,8 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-
 
 
 // ===============================
@@ -103,6 +93,7 @@ dots.forEach(dot => {
 
 // Auto-slide
 setInterval(() => updateSlider(index + 1), 5000);
+
 
 // ===============================
 //  LIGHTBOX (fullscreen view)
@@ -142,6 +133,7 @@ lbNext.addEventListener("click", () => {
   i = (i + 1) % totalSlides;
   openLightbox(i);
 });
+
 
 // ===============================
 // === DEMO REQUEST MODAL ===
@@ -191,78 +183,70 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-const dropdownBtn = document.getElementById("dropdownButton");
-const dropdownContent = document.getElementById("dropdownContent");
-const productDetails = document.getElementById("productDetails");
-
-// Toggle dropdown
-dropdownBtn.addEventListener("click", () => {
-  dropdownContent.style.display =
-    dropdownContent.style.display === "block" ? "none" : "block";
+// ===============================
+// DOT ALIGNMENT FIX (KEY CHANGE)
+// ===============================
+window.addEventListener("load", () => {
+  const dotContainer = document.querySelector(".dots");
+  if (dotContainer) {
+    dotContainer.style.display = "flex";
+    dotContainer.style.justifyContent = "center";
+    dotContainer.style.alignItems = "center";
+    dotContainer.style.gap = "8px";
+    dotContainer.style.marginTop = "15px";
+    dotContainer.style.position = "relative";
+    dotContainer.style.bottom = "0"; // ensures dots stay below slider
+  }
 });
 
-// Close dropdown when clicking outside
-window.addEventListener("click", (e) => {
-  if (!dropdownBtn.contains(e.target)) dropdownContent.style.display = "none";
-});
 
-// //* ==========================
-//    NAVBAR FUNCTIONALITY
-//    ========================== */
+// ===============================
+// NAVBAR FUNCTIONALITY
+// ===============================
+const hamburger2 = document.getElementById("navbar-hamburger");
+const navLinks2 = document.getElementById("navbar-links");
+const overlay2 = document.getElementById("menu-overlay");
+const dropdownToggles2 = document.querySelectorAll(".dropdown-toggle");
+const body2 = document.body;
 
-// Elements
-const hamburger = document.getElementById("navbar-hamburger");
-const navLinks = document.getElementById("navbar-links");
-const overlay = document.getElementById("menu-overlay");
-const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
-const body = document.body;
+if (hamburger2 && navLinks2 && overlay2) {
+  hamburger2.addEventListener("click", () => {
+    const isOpen = navLinks2.classList.toggle("open");
+    overlay2.classList.toggle("show");
+    body2.classList.toggle("no-scroll");
+    hamburger2.innerHTML = isOpen
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
+  });
 
-// Toggle mobile menu open/close
-hamburger.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("open");
-  overlay.classList.toggle("show");
-  body.classList.toggle("no-scroll");
+  overlay2.addEventListener("click", () => {
+    navLinks2.classList.remove("open");
+    overlay2.classList.remove("show");
+    body2.classList.remove("no-scroll");
+    hamburger2.innerHTML = '<i class="fas fa-bars"></i>';
+  });
+}
 
-  // Switch icon between bars and close
-  hamburger.innerHTML = isOpen
-    ? '<i class="fas fa-times"></i>'
-    : '<i class="fas fa-bars"></i>';
-});
-
-// Close menu when overlay is clicked
-overlay.addEventListener("click", () => {
-  navLinks.classList.remove("open");
-  overlay.classList.remove("show");
-  body.classList.remove("no-scroll");
-  hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-});
-
-// Dropdown expand/collapse on mobile
-dropdownToggles.forEach(toggle => {
+dropdownToggles2.forEach(toggle => {
   toggle.addEventListener("click", (e) => {
     e.preventDefault();
     const parent = toggle.parentElement;
     parent.classList.toggle("open");
 
-    // Rotate dropdown icon
     const icon = toggle.querySelector(".dropdown-icon");
     if (icon) icon.classList.toggle("rotate");
   });
 });
 
-// Close nav when product dropdown links clicked (mobile UX improvement)
 document.querySelectorAll('.dropdown-menu a').forEach(link => {
   link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    overlay.classList.remove('show');
-    body.classList.remove('no-scroll');
-    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    navLinks2.classList.remove('open');
+    overlay2.classList.remove('show');
+    body2.classList.remove('no-scroll');
+    hamburger2.innerHTML = '<i class="fas fa-bars"></i>';
   });
 });
 
-// ================================
-// NESTED DROPDOWN (Development)
-// ================================
 document.querySelectorAll('.dropdown-sub-toggle').forEach(toggle => {
   toggle.addEventListener('click', (e) => {
     if (window.innerWidth <= 700) {
@@ -272,5 +256,3 @@ document.querySelectorAll('.dropdown-sub-toggle').forEach(toggle => {
     }
   });
 });
-
-
